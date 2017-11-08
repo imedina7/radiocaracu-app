@@ -7,18 +7,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="radio"
-        android:layout_marginTop="50dp"/>
-
-
-    <Button
-        android:id="@+id/mediaActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="media"
-        android:layout_below="@+id/radioActivity"/>
+        android:text="radio" />
 
 
 </RelativeLayout>

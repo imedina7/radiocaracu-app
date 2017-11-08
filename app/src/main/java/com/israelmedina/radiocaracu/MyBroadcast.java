@@ -1,4 +1,4 @@
-package co.mobiwise.myapplication;
+package com.israelmedina.radiocaracu;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

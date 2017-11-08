@@ -1,4 +1,4 @@
-package co.mobiwise.myapplication;
+package com.israelmedina.radiocaracu;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,7 +26,6 @@ public class MainActivity extends Activity {
 
     public void initializeUI() {
         radioActivity = (Button) findViewById(R.id.radioActivity);
-        mediaActivity = (Button) findViewById(R.id.mediaActivity);
 
         radioActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,13 +35,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        mediaActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MediaActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override

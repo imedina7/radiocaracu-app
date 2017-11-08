@@ -7,17 +7,34 @@
         android:id="@+id/buttonControlStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="START"/>
+        android:layout_above="@+id/radio_url"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/play_btn" />
 
     <TextView
         android:id="@+id/textviewControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonControlStart"
+        android:layout_above="@+id/buttonControlStart"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="RADIO STATE : IDLE"/>
+        android:layout_marginBottom="11dp"
+        android:text="RADIO STATE : IDLE" />
+
+    <EditText
+        android:id="@+id/radio_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Radio URL" />
 
 </RelativeLayout>

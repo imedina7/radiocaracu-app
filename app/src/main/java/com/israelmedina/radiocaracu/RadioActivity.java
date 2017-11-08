@@ -1,10 +1,11 @@
-package co.mobiwise.myapplication;
+package com.israelmedina.radiocaracu;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import co.mobiwise.library.radio.RadioListener;
@@ -15,10 +16,11 @@ import co.mobiwise.library.radio.RadioManager;
  */
 public class RadioActivity extends Activity implements RadioListener{
 
-    private final String[] RADIO_URL = {"http://rockfm.rockfm.com.tr:9450"};
+    private final String[] RADIO_URL = {"http://radiocharrua.stream.com.uy:8098"};
 
     Button mButtonControlStart;
     TextView mTextViewControl;
+    EditText url_input;
     RadioManager mRadioManager;
 
     @Override
@@ -36,12 +38,15 @@ public class RadioActivity extends Activity implements RadioListener{
     public void initializeUI() {
         mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
         mTextViewControl = (TextView) findViewById(R.id.textviewControl);
+        url_input = (EditText) findViewById(R.id.radio_url);
+
+        url_input.setText(RADIO_URL[0]);
 
         mButtonControlStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!mRadioManager.isPlaying())
-                    mRadioManager.startRadio(RADIO_URL[0]);
+                    mRadioManager.startRadio(url_input.getText().toString());
                 else
                     mRadioManager.stopRadio();
             }
@@ -77,6 +82,7 @@ public class RadioActivity extends Activity implements RadioListener{
             public void run() {
                 //TODO Do UI works here.
                 mTextViewControl.setText("RADIO STATE : PLAYING...");
+                mButtonControlStart.setText(R.string.pause_btn);
             }
         });
     }
@@ -88,6 +94,7 @@ public class RadioActivity extends Activity implements RadioListener{
             public void run() {
                 //TODO Do UI works here
                 mTextViewControl.setText("RADIO STATE : STOPPED.");
+                mButtonControlStart.setText(R.string.play_btn);
             }
         });
     }

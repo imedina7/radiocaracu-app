@@ -1,4 +1,4 @@
-package co.mobiwise.myapplication;
+package com.israelmedina.radiocaracu;
 
 import android.app.Activity;
 import android.os.Bundle;

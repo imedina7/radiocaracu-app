@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        applicationId "co.mobiwise.myapplication"
+        applicationId "com.israelmedina.radiocaracu"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

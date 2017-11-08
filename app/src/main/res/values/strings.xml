@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Radio Caracú</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="play_btn">Play</string>
+    <string name="pause_btn">Pause</string>
 </resources>
