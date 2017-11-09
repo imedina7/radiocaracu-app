@@ -177,7 +177,8 @@ public class RadioActivity extends Activity implements RadioListener{
     public void onMetaDataReceived(String s, String s1) {
         //TODO Check metadata values. Singer name, song name or whatever you have.
         final String text = s1;
-        if (s != null)
+        if (s != null )
+            if (s.equals("StreamTitle") && !s1.equals(""))
             runOnUiThread(new Runnable() {
                   @Override
                   public void run() {

@@ -17,12 +17,27 @@
 
     <TextView
         android:id="@+id/metadataText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonControlStart"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="50dp"
-        android:text="Metadata currently not available" />
+        android:alpha="0.7"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="25dp"
+        android:gravity="center"
+        android:layoutDirection="ltr"
+        android:lines="1"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="sdfsdfsdfsdfsfsd sdfsdf sdfsdfsd fsdf sdfsdf sdfdssdfsdfdsfsdfsdfsdf  ds"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textviewControl"
