@@ -16,6 +16,15 @@
         android:text="@string/play_btn" />
 
     <TextView
+        android:id="@+id/metadataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonControlStart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="Metadata currently not available" />
+
+    <TextView
         android:id="@+id/textviewControl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
