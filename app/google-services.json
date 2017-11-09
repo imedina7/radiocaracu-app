@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "336077057977",
+    "firebase_url": "https://radiocaracu.firebaseio.com",
+    "project_id": "radiocaracu",
+    "storage_bucket": "radiocaracu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336077057977:android:de8fd183eeca18fd",
+        "android_client_info": {
+          "package_name": "com.israelmedina.radiocaracu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336077057977-jr2ocjmgtm4ovbkml41tc463pd306o0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.israelmedina.radiocaracu",
+            "certificate_hash": "4121a113d0c9e023159b99f2722515043a5a57b7"
+          }
+        },
+        {
+          "client_id": "336077057977-jfr56vkbp7sjecbmbb6a6o60q9ngnf8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnEpr-jE6D1p4EykigFbicabCQl12qXVY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336077057977-jfr56vkbp7sjecbmbb6a6o60q9ngnf8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

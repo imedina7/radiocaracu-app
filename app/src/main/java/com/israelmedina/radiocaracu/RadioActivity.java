@@ -34,7 +34,7 @@ import co.mobiwise.library.radio.RadioManager;
  */
 public class RadioActivity extends Activity implements RadioListener{
 
-    private String[] RADIO_URL = {"http://radiocharrua.stream.com.uy:8098/"};
+    private String[] RADIO_URL = {"http://50.22.219.37:3335/caritadecu"};
     RadioManager mRadioManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,7 @@ public class RadioActivity extends Activity implements RadioListener{
         protected Void doInBackground(Void... s) {
             String inputLine;
             try {
-                URL coso = new URL("http://www.caritade.cu.cc/sever.json");
+                URL coso = new URL("http://www.caritade.cu.cc/server.json");
                 URLConnection conn = coso.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                         conn.getInputStream()));
@@ -119,20 +119,35 @@ public class RadioActivity extends Activity implements RadioListener{
         TextView mTextViewControl;
         mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
         mTextViewControl = (TextView) findViewById(R.id.textviewControl);
-//        SeekBar volume = (SeekBar) findViewById(R.id.volumeSeek);
-//        EditText url_input = (EditText) findViewById(R.id.radio_url);
+        SeekBar volume = (SeekBar) findViewById(R.id.volumeSeek);
 
-//        url_input.setText(RADIO_URL[0]);
 
         mButtonControlStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EditText url_input = (EditText) findViewById(R.id.radio_url);
+
                 if (!mRadioManager.isPlaying()) {
                     mRadioManager.startRadio(RADIO_URL[0]);
                 } else {
                     mRadioManager.stopRadio();
                 }
+            }
+        });
+        volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int i = RadioActivity.this.getVolumeControlStream();
+                RadioActivity.this.setVolumeControlStream(i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
@@ -195,7 +210,6 @@ public class RadioActivity extends Activity implements RadioListener{
 
     @Override
     public void onMetaDataReceived(String s, String s1) {
-        //TODO Check metadata values. Singer name, song name or whatever you have.
         final String text = s1;
         if (s != null )
             if (s.equals("StreamTitle") && !s1.equals(""))
