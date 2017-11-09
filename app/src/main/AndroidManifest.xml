@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MediaActivity"/>
         <activity android:name=".RadioActivity"/>
 
         <receiver android:name=".MyBroadcast">
