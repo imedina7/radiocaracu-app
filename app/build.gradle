@@ -3,10 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion '26.0.2'
-
     defaultConfig {
         applicationId "com.israelmedina.radiocaracu"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -20,6 +19,8 @@ android {
     }
     sourceSets {
         main { res.srcDirs = ['src/main/res', 'src/main/res/drawable', 'src/main/res/values-es'] }
+    }
+    productFlavors {
     }
 }
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -32,15 +34,11 @@ import co.mobiwise.library.radio.RadioManager;
  */
 public class RadioActivity extends Activity implements RadioListener{
 
-    private String[] RADIO_URL = {"http://50.22.219.37:3335/caritadecu"};
-
-    Button mButtonControlStart;
-    TextView mTextViewControl;
-    EditText url_input;
+    private String[] RADIO_URL = {"http://radiocharrua.stream.com.uy:8098/"};
     RadioManager mRadioManager;
-    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         GetStreamingURL g = new GetStreamingURL();
 
@@ -51,6 +49,14 @@ public class RadioActivity extends Activity implements RadioListener{
         mRadioManager.registerListener(this);
         mRadioManager.setLogging(true);
     }
+
+    @Override
+    protected void onDestroy() {
+        mRadioManager.disconnect();
+        mRadioManager.unregisterListener(RadioActivity.this);
+        super.onDestroy();
+    }
+
     private class GetStreamingURL extends AsyncTask<Void,Void,Void> {
         private ProgressDialog progressDialog = new ProgressDialog(RadioActivity.this);
         InputStream inputStream = null;
@@ -58,7 +64,7 @@ public class RadioActivity extends Activity implements RadioListener{
 
 
         protected void onPreExecute() {
-            String message = context.getResources().getString(R.string.progressMessage);
+            String message = progressDialog.getContext().getResources().getString(R.string.progressMessage);
             progressDialog.setMessage(message);
             progressDialog.show();
             progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -71,7 +77,7 @@ public class RadioActivity extends Activity implements RadioListener{
         protected Void doInBackground(Void... s) {
             String inputLine;
             try {
-                URL coso = new URL("http://www.caritade.cu.cc/server.json");
+                URL coso = new URL("http://www.caritade.cu.cc/sever.json");
                 URLConnection conn = coso.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                         conn.getInputStream()));
@@ -109,19 +115,24 @@ public class RadioActivity extends Activity implements RadioListener{
 
     }
     public void initializeUI() {
+        Button mButtonControlStart;
+        TextView mTextViewControl;
         mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
         mTextViewControl = (TextView) findViewById(R.id.textviewControl);
-        url_input = (EditText) findViewById(R.id.radio_url);
+//        SeekBar volume = (SeekBar) findViewById(R.id.volumeSeek);
+//        EditText url_input = (EditText) findViewById(R.id.radio_url);
 
-        url_input.setText(RADIO_URL[0]);
+//        url_input.setText(RADIO_URL[0]);
 
         mButtonControlStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mRadioManager.isPlaying())
-                    mRadioManager.startRadio(url_input.getText().toString());
-                else
+//                EditText url_input = (EditText) findViewById(R.id.radio_url);
+                if (!mRadioManager.isPlaying()) {
+                    mRadioManager.startRadio(RADIO_URL[0]);
+                } else {
                     mRadioManager.stopRadio();
+                }
             }
         });
     }
@@ -140,6 +151,9 @@ public class RadioActivity extends Activity implements RadioListener{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                Button mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
+                TextView mTextViewControl = (TextView) findViewById(R.id.textviewControl);
+
                 //TODO Do UI works here.
                 mTextViewControl.setText("LOADING...");
             }
@@ -156,9 +170,11 @@ public class RadioActivity extends Activity implements RadioListener{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                Button mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
+                TextView mTextViewControl = (TextView) findViewById(R.id.textviewControl);
                 //TODO Do UI works here.
                 mTextViewControl.setText(R.string.radioState_playing);
-                mButtonControlStart.setText(R.string.pause_btn);
+                mButtonControlStart.setBackground(RadioActivity.this.getResources().getDrawable(R.drawable.btn_playback_pause));
             }
         });
     }
@@ -169,8 +185,10 @@ public class RadioActivity extends Activity implements RadioListener{
             @Override
             public void run() {
                 //TODO Do UI works here
+                Button mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
+                TextView mTextViewControl = (TextView) findViewById(R.id.textviewControl);
                 mTextViewControl.setText(R.string.radioState_stopped);
-                mButtonControlStart.setText(R.string.play_btn);
+                mButtonControlStart.setBackground(RadioActivity.this.getResources().getDrawable(R.drawable.btn_playback_play));
             }
         });
     }

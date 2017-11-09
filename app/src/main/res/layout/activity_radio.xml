@@ -1,65 +1,77 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
-    <Button
-        android:id="@+id/buttonControlStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/radio_url"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:text="@string/play_btn" />
-
-    <TextView
-        android:id="@+id/metadataText"
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonControlStart"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="50dp"
-        android:alpha="0.7"
-        android:clickable="false"
-        android:contextClickable="false"
-        android:ellipsize="marquee"
-        android:fadingEdge="horizontal"
-        android:fadingEdgeLength="25dp"
-        android:gravity="center"
-        android:layoutDirection="ltr"
-        android:lines="1"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:singleLine="true"
-        android:text="@string/nometadata"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/textviewControl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonControlStart"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp"
-        android:text="RADIO STATE : IDLE" />
-
-    <EditText
-        android:id="@+id/radio_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="23dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Radio URL"
-        android:visibility="invisible" />
+        android:alpha="1"
+        android:background="#AA000000">
+
+        <TextView
+            android:id="@+id/metadataText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:alpha="0.7"
+            android:clickable="false"
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="25dp"
+            android:gravity="center"
+            android:layoutDirection="ltr"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/nometadata"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textviewControl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="RADIO STATE : IDLE"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp" />
+
+        <Button
+            android:id="@+id/buttonControlStart"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_playback_play" />
+
+
+        <SeekBar
+            android:id="@+id/volumeSeek"
+            android:layout_width="309dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="50dp" />
+
+
+    </FrameLayout>
+
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/_buttonControlStart"-->
+    <!--android:layout_width="30dp"-->
+    <!--android:layout_height="30dp"-->
+    <!--android:background="#00000000"-->
+    <!--android:backgroundTintMode="src_atop"-->
+    <!--android:srcCompat="@drawable/btn_playback_play" />-->
 
 </RelativeLayout>
