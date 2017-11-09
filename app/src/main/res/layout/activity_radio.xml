@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/background" android:backgroundTintMode="screen">
+                android:layout_height="match_parent">
+                <!--android:background="@drawable/background"
+    android:backgroundTintMode="screen"-->
 
     <Button
         android:id="@+id/buttonControlStart"
@@ -36,7 +37,7 @@
         android:lines="1"
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
-        android:text="sdfsdfsdfsdfsfsd sdfsdf sdfsdfsd fsdf sdfsdf sdfdssdfsdfdsfsdfsdfsdf  ds"
+        android:text="@string/nometadata"
         android:textAlignment="center" />
 
     <TextView
@@ -60,6 +61,7 @@
         android:layout_marginBottom="23dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Radio URL" />
+        android:text="Radio URL"
+        android:visibility="invisible" />
 
 </RelativeLayout>

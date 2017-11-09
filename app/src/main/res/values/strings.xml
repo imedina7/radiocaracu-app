@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Radio Caracú</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="play_btn">Play</string>
     <string name="pause_btn">Pause</string>
+    <string name="nometadata">Metadata currently not available</string>
+    <string name="nowListening">Now listening: </string>
+    <string name="radioState_stopped">STOPPED</string>
+    <string name="radioState_playing">PLAYING</string>
+    <string name="radioState_idle">IDLE</string>
+    <string name="progressMessage">Getting server data...</string>
 </resources>

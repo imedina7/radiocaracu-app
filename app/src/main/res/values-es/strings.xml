@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Radio Caracú</string>
+    <string name="action_settings">Settings</string>
+    <string name="play_btn">Reproducir</string>
+    <string name="pause_btn">Pausar</string>
+    <string name="nometadata">Información del streaming no disponible</string>
+    <string name="nowListening">Sonando: </string>
+    <string name="radioState_stopped">DETENIDO</string>
+    <string name="radioState_playing">REPRODUCIENDO</string>
+    <string name="radioState_idle">EN ESPERA</string>
+    <string name="progressMessage">Cargando datos del servidor...</string>
+</resources>

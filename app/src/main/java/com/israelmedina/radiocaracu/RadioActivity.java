@@ -2,6 +2,7 @@ package com.israelmedina.radiocaracu;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -37,7 +38,7 @@ public class RadioActivity extends Activity implements RadioListener{
     TextView mTextViewControl;
     EditText url_input;
     RadioManager mRadioManager;
-
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,8 @@ public class RadioActivity extends Activity implements RadioListener{
 
 
         protected void onPreExecute() {
-            progressDialog.setMessage("Getting server data...");
+            String message = context.getResources().getString(R.string.progressMessage);
+            progressDialog.setMessage(message);
             progressDialog.show();
             progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 public void onCancel(DialogInterface arg0) {
@@ -125,7 +127,7 @@ public class RadioActivity extends Activity implements RadioListener{
     }
     public void updateMetadata(String text) {
         TextView metadataText = (TextView) findViewById(R.id.metadataText);
-        metadataText.setText("Now playing: " + text);
+        metadataText.setText(R.string.nowListening + text);
     }
     @Override
     protected void onResume() {
@@ -139,7 +141,7 @@ public class RadioActivity extends Activity implements RadioListener{
             @Override
             public void run() {
                 //TODO Do UI works here.
-                mTextViewControl.setText("RADIO STATE : LOADING...");
+                mTextViewControl.setText("LOADING...");
             }
         });
     }
@@ -155,7 +157,7 @@ public class RadioActivity extends Activity implements RadioListener{
             @Override
             public void run() {
                 //TODO Do UI works here.
-                mTextViewControl.setText("RADIO STATE : PLAYING...");
+                mTextViewControl.setText(R.string.radioState_playing);
                 mButtonControlStart.setText(R.string.pause_btn);
             }
         });
@@ -167,7 +169,7 @@ public class RadioActivity extends Activity implements RadioListener{
             @Override
             public void run() {
                 //TODO Do UI works here
-                mTextViewControl.setText("RADIO STATE : STOPPED.");
+                mTextViewControl.setText(R.string.radioState_stopped);
                 mButtonControlStart.setText(R.string.play_btn);
             }
         });
@@ -184,9 +186,7 @@ public class RadioActivity extends Activity implements RadioListener{
                   public void run() {
                       updateMetadata(text);
                   }
-              }
-
-            );
+              } );
 
     }
 
