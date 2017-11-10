@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "336077057977-gqkbtnbve0n9rd6dipbn27ro0gho1h9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.israelmedina.radiocaracu",
+            "certificate_hash": "e07c9547c3964bbf96171beb52a1e19b262dfeb2"
+          }
+        },
+        {
           "client_id": "336077057977-jr2ocjmgtm4ovbkml41tc463pd306o0q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -48,6 +48,8 @@ public class RadioActivity extends Activity implements RadioListener{
         mRadioManager = RadioManager.with(getApplicationContext());
         mRadioManager.registerListener(this);
         mRadioManager.setLogging(true);
+
+
     }
 
     @Override
@@ -77,7 +79,7 @@ public class RadioActivity extends Activity implements RadioListener{
         protected Void doInBackground(Void... s) {
             String inputLine;
             try {
-                URL coso = new URL("http://www.caritade.cu.cc/server.json");
+                URL coso = new URL("http://www.caritade.cu.cc/api/server.json");
                 URLConnection conn = coso.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(
                         conn.getInputStream()));
@@ -119,8 +121,12 @@ public class RadioActivity extends Activity implements RadioListener{
         TextView mTextViewControl;
         mButtonControlStart = (Button) findViewById(R.id.buttonControlStart);
         mTextViewControl = (TextView) findViewById(R.id.textviewControl);
-        SeekBar volume = (SeekBar) findViewById(R.id.volumeSeek);
+//        SeekBar volume = (SeekBar) findViewById(R.id.volumeSeek);
 
+        if (mRadioManager.isPlaying())
+            mButtonControlStart.setBackground(RadioActivity.this.getResources().getDrawable(R.drawable.btn_playback_pause));
+        else
+            mButtonControlStart.setBackground(RadioActivity.this.getResources().getDrawable(R.drawable.btn_playback_play));
 
         mButtonControlStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,23 +139,23 @@ public class RadioActivity extends Activity implements RadioListener{
                 }
             }
         });
-        volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int i = RadioActivity.this.getVolumeControlStream();
-                RadioActivity.this.setVolumeControlStream(i);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+//        volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                int i = RadioActivity.this.getVolumeControlStream();
+//                RadioActivity.this.setVolumeControlStream(i);
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//        });
     }
     public void updateMetadata(String text) {
         TextView metadataText = (TextView) findViewById(R.id.metadataText);

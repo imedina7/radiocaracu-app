@@ -4,7 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/app_title" />
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -54,13 +61,13 @@
             android:background="@drawable/btn_playback_play" />
 
 
-        <SeekBar
-            android:id="@+id/volumeSeek"
-            android:layout_width="309dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="50dp" />
+        <!--<SeekBar-->
+            <!--android:id="@+id/volumeSeek"-->
+            <!--android:layout_width="309dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="end"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:layout_marginTop="50dp" />-->
 
 
     </FrameLayout>
