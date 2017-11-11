@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'destination25'
+            storeFile file('/home/dave/apk_keystore/israelmedina.jks')
+            storePassword 'destination25'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion '26.0.2'
     defaultConfig {

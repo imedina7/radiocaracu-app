@@ -160,6 +160,7 @@ public class RadioActivity extends Activity implements RadioListener{
     public void updateMetadata(String text) {
         TextView metadataText = (TextView) findViewById(R.id.metadataText);
         metadataText.setText(R.string.nowListening + text);
+        mRadioManager.updateNotification("Radio Caracú", text, R.drawable.default_art,R.drawable.default_art);
     }
     @Override
     protected void onResume() {
@@ -196,6 +197,7 @@ public class RadioActivity extends Activity implements RadioListener{
                 //TODO Do UI works here.
                 mTextViewControl.setText(R.string.radioState_playing);
                 mButtonControlStart.setBackground(RadioActivity.this.getResources().getDrawable(R.drawable.btn_playback_pause));
+                mRadioManager.updateNotification("Radio Caracú", RadioActivity.this.getResources().getString(R.string.nometadata),R.drawable.default_art,R.drawable.default_art);
             }
         });
     }
